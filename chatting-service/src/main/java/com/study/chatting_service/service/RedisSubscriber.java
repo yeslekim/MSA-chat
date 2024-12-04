@@ -20,15 +20,6 @@ public class RedisSubscriber implements MessageListener {
     this.objectMapper = objectMapper;
   }
 
-//  @Override
-//  public void onMessage(Message message, byte[] pattern) {
-//    String channel = new String(pattern);
-//    String messageBody = new String(message.getBody());
-//    String roomId = channel.split("-")[1]; // Extract roomId from channel name
-//    log.info("Received message from Redis: {}, roomID: {}",  messageBody, roomId);
-//    messagingTemplate.convertAndSend("/sub/chat/room/" + roomId, messageBody);
-//  }
-
   @Override
   public void onMessage(Message message, byte[] pattern) {
 
@@ -41,7 +32,8 @@ public class RedisSubscriber implements MessageListener {
       String roomId = chat.getRoomId();  // Redis 채널에서 채팅방 ID 추출
 
       // 로그 출력
-      log.info("Received message from roomID: {}, userId: {}, message: {}", roomId, chat.getUserId(), chat.getMessage());
+      log.info("Received message from roomID: {}, userId: {}, message: {}", roomId,
+          chat.getUserId(), chat.getMessage());
 
       // 클라이언트에게 메시지 전달
       messagingTemplate.convertAndSend("/sub/chat/room/" + roomId, messageBody);

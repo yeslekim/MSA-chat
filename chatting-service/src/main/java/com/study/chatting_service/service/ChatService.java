@@ -3,13 +3,12 @@ package com.study.chatting_service.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.study.chatting_service.model.Chat;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
@@ -33,6 +32,7 @@ public class ChatService {
   }
 
   private void saveChatMessage(Chat chatChat) {
+    chatChat.setSendDt(new Date()); // 전송 시간 현재시간으로 저장
     redisTemplate.opsForList().rightPush(chatChat.getRoomId(), chatChat);
   }
 

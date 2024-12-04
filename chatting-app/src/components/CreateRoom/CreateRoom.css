@@ -1,0 +1,50 @@
+.create-room {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .create-room h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .create-room input {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    outline: none;
+    text-align: center;
+  }
+  
+  .create-room input::placeholder {
+    color: #999;
+  }
+  
+  .create-room button {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #0078d4;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-room button:hover {
+    background-color: #005ea2;
+  }
+  

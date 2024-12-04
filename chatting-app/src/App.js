@@ -1,9 +1,9 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ChatRoom from './ChatRoom'; // 채팅방 페이지
-import ChatList from './ChatList'; // 채팅방 목록 페이지
-import CreateRoom from './CreateRoom'; // 채팅방 생성 페이지
+import ChatRoom from './components/ChatRoom/ChatRoom'; // 채팅방 페이지
+import ChatList from './components/ChatList/ChatList'; // 채팅방 목록 페이지
+import CreateRoom from './components/CreateRoom/CreateRoom'; // 채팅방 생성 페이지
 
 const App = () => {
   return (

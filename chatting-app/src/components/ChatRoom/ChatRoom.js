@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { Stomp } from '@stomp/stompjs';
 import * as SockJS from 'sockjs-client';
+import { format } from 'date-fns';
 import './ChatRoom.css';
 
 const ChatRoom = () => {
@@ -36,7 +37,7 @@ const ChatRoom = () => {
           const incomingMessage = JSON.parse(message.body);
           setMessages((prevMessages) => [
             ...prevMessages,
-            { userId: incomingMessage.userId, message: incomingMessage.message },
+            { userId: incomingMessage.userId, message: incomingMessage.message, sendDt: incomingMessage.sendDt },
           ]);
         });
       }, (error) => {
@@ -87,6 +88,10 @@ const ChatRoom = () => {
     }
   };
 
+  const exitChatRoom = () => {
+    navigate('/');
+  };
+
   // 새로운 메시지가 추가될 때마다 스크롤을 맨 아래로 이동
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -96,6 +101,7 @@ const ChatRoom = () => {
     <div className="chat-room">      
       <div className="chat-header">
         <h2>{roomId} 채팅방</h2>
+        <button className="exit-button" onClick={exitChatRoom}>나가기</button>
       </div>
       <div className="chat-body">
         <div className="messages">
@@ -113,6 +119,7 @@ const ChatRoom = () => {
                 <div className="message-content-wrapper">
                   <div className="message-user-id">{msg.userId}</div>
                   <div className="message-content">{msg.message}</div>
+                  <div className="message-timestamp">{format(new Date(msg.sendDt), 'yyyy-MM-dd HH:mm')}</div>
                 </div>
               </div>
             </div>

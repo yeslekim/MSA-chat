@@ -1,6 +1,6 @@
-// CreateRoom.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './CreateRoom.css';
 
 const CreateRoom = () => {
   const [roomName, setRoomName] = useState('');
@@ -8,9 +8,9 @@ const CreateRoom = () => {
 
   const handleCreateRoom = async () => {
     try {
-      console.log(roomName)
+      console.log(roomName);
       // POST 요청을 보내는 부분
-      const response = await fetch('http://localhost:8080/chat/room?roomName=' + roomName, {
+      const response = await fetch(`http://localhost:8080/chat/room?roomId=${roomName}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

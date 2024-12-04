@@ -8,12 +8,6 @@
   font-family: 'Arial', sans-serif;
 }
 
-.chat-header {
-  background-color: #1e2a37;
-  color: white;
-  padding: 10px;
-  text-align: center;
-}
 
 .chat-body {
   flex: 1;
@@ -133,4 +127,42 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
+}
+
+.chat-header {
+  background-color: #1e2a37;
+  color: white;
+  padding: 10px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.chat-header h2 {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+}
+
+.exit-button {
+  position: absolute;
+  right: 10px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.exit-button:hover {
+  background-color: #ff7875;
+}
+
+.message-timestamp {
+  font-size: 0.8em;
+  color: gray;
+  text-align: right;
+  margin-top: 5px; /* 시간 표시를 메시지 아래로 조금 더 내려줌 */
 }

@@ -1,7 +1,7 @@
 // ChatList.js
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Modal from './Modal';
+import Modal from '../../Modal';
 import './ChatList.css';
 
 const ChatList = () => {
@@ -40,6 +40,10 @@ const ChatList = () => {
     }
   };
 
+  const CreateRoom = () => {
+    navigate('/create-room');
+  }
+
   return (
     <div className="chat-list-container">
       <div className="chat-list-header">
@@ -50,7 +54,7 @@ const ChatList = () => {
           <li key={room} className="chat-list-item" onClick={() => handleRoomClick(room)}>
             <div className="room-link">
               <div className="room-item">
-                <h4 className="room-title">채팅방 {room}</h4>
+                <h4 className="room-title">{room}</h4>
                 <p className="room-subtitle">최근 메시지</p>
               </div>
             </div>
@@ -62,7 +66,7 @@ const ChatList = () => {
         onClose={() => setIsModalOpen(false)}
         onSubmit={handleModalSubmit}
       />
-      <button className="create-room-button">채팅방 만들기</button>
+      <button className="create-room-button" onClick={() => CreateRoom()}>채팅방 만들기</button>
     </div>
   );
 };

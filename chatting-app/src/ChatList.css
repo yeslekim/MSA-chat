@@ -1,0 +1,90 @@
+/* ChatList.css */
+.chat-list-container {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-list-header {
+  padding: 20px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.chat-list-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.chat-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-list-item {
+  padding: 15px 20px;
+  border-bottom: 1px solid #dbdbdb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.chat-list-item:last-child {
+  border-bottom: none;
+}
+
+.chat-list-item:hover {
+  background-color: #f0f0f0;
+}
+
+.room-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.room-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.room-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.room-subtitle {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #888;
+}
+
+.create-room-button {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  background-color: #3897f0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-top: 1px solid #dbdbdb;
+  transition: background-color 0.3s;
+}
+
+.create-room-button:hover {
+  background-color: #2f89d7;
+}
